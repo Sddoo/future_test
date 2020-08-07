@@ -10,7 +10,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fb00bfb-ff8e-408c-81d0-9b76e4762f2c" name="Default Changelist" comment="" />
+    <list default="true" id="1fb00bfb-ff8e-408c-81d0-9b76e4762f2c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/conf/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/setup" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1596809300178</updated>
-      <workItem from="1596809301408" duration="4296000" />
+      <workItem from="1596809301408" duration="6397000" />
     </task>
     <servers />
   </component>
@@ -65,6 +71,10 @@
       <screen x="0" y="23" width="2560" height="1360" />
     </state>
     <state x="1659" y="418" key="#JavaScript/0.23.2560.1360@0.23.2560.1360" timestamp="1596811880867" />
+    <state x="1677" y="511" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596814359575">
+      <screen x="0" y="23" width="2560" height="1360" />
+    </state>
+    <state x="1677" y="511" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2560.1360@0.23.2560.1360" timestamp="1596814359575" />
     <state x="1676" y="456" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596811835685">
       <screen x="0" y="23" width="2560" height="1360" />
     </state>
