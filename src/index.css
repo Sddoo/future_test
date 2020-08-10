@@ -5,9 +5,38 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+    height: 2000px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.tableWrap {
+    width: 85%;
+    margin: auto;
+    text-align: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table, tr, td, th {
+    border: 1px solid black;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.paginationItem {
+    margin: 2px;
+    width: 20px;
+    border-radius: 2px;
+    border: 1px solid black;
 }
