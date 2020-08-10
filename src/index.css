@@ -40,3 +40,18 @@ table, tr, td, th {
     border-radius: 2px;
     border: 1px solid black;
 }
+
+.addFormWrap {
+    width: 85%;
+    margin: auto;
+}
+
+.flexContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.addForm {
+    display: flex;
+    justify-content: space-between;
+}

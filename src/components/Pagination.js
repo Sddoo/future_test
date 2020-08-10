@@ -1,12 +1,13 @@
 import React from 'react'
 
-const Pagination = ({page, persons}) => {
+const Pagination = ({page, tableContent, setPageContent}) => {
 	const   res = [],
-			pagesCount = Math.ceil(persons.data.length / page.personsCount);
+			pagesCount = Math.ceil(tableContent.length / page.personsCount);
 
 	function changePage (e) {
 		page.number = e.target.innerText;
-		page.setData(persons.data);
+		const start = (page.number - 1) * page.personsCount;
+		setPageContent(tableContent.slice(start, start + page.personsCount));
 	}
 
 	for (let i = 1; i <= pagesCount; i++) {
