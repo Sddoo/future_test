@@ -3,47 +3,53 @@ import Person from '../classes/classPerson'
 
 const AddForm = ({fetchedData, setFetchedData, setTableContent}) => {
 	const [newField, setNewField] = useState(new Person());
-	const [visible, setVisible] = useState(false);
+	const [visibleForm, setVisibleForm] = useState(false);
 	const [disable, setDisable] = useState(true);
 
 	function submitHandler(e) {
 		e.preventDefault();
+		setNewField(new Person());
 		setFetchedData([newField].concat(fetchedData));
 		setTableContent([newField].concat(fetchedData));
+		toggleForm();
+	}
+
+	function toggleForm() {
+		setVisibleForm(!visibleForm);
 	}
 
 	function changeHandler(e) {
-		let field = Object.assign({}, newField);
+		let field = Object.assign({}, newField),
+			necessaryInputs = ['id', 'firstName', 'lastName', 'email', 'phone'],
+			flag;
+
 		field[e.target.name] = e.target.value;
-		setDisable(Object.values(field).includes(''));
+		flag = necessaryInputs.reduce( (acc, cur) => acc += field[cur] === '' ? 1 : 0, 0);
+		setDisable(!!flag);
 		setNewField(field);
 	}
 
-	if (visible)
+	if (visibleForm)
 		return (
-			<div className={'addFormWrap'}>
-				<div className={'flexContainer'}>
-					<div>id</div>
-					<div>First name</div>
-					<div>Last name</div>
-					<div>Email</div>
-					<div>Phone</div>
-					<div></div>
+			<div>
+				<div className={'addFormBg'} onClick={toggleForm}> </div>
+				<div className="addFormWrap">
+					<form onSubmit={submitHandler} className={'addForm'}>
+						<h2>Add form</h2>
+						Id:<input onChange={changeHandler} type="text" name='id' value={newField.id}/>
+						First name:<input onChange={changeHandler} type="text" name='firstName' value={newField.firstName}/>
+						Last name:<input onChange={changeHandler} type="text" name='lastName' value={newField.lastName}/>
+						Email:<input onChange={changeHandler} type="email" name='email' value={newField.email}/>
+						Phone:<input onChange={changeHandler} type="text" name='phone' value={newField.phone}/>
+						<button type='submit' disabled={disable}>Add field</button>
+						<button onClick={toggleForm} disabled={!fetchedData.length}>Close form</button>
+					</form>
 				</div>
-				<form onSubmit={submitHandler} className={'addForm'}>
-					<input type="text" onChange={changeHandler} name='id' value={newField.id}/>
-					<input type="text" onChange={changeHandler} name='firstName' value={newField.firstName}/>
-					<input type="text" onChange={changeHandler} name='lastName' value={newField.lastName}/>
-					<input type="email" onChange={changeHandler} name='email' value={newField.email}/>
-					<input type="text" onChange={changeHandler} name='phone' value={newField.phone}/>
-					<button type='submit' disabled={disable}>Add field</button>
-				</form>
-				<button onClick={() => setVisible(false)}>Close form</button>
 			</div>
 		);
 	else
 		return (
-			<button onClick={() => setVisible(true)}>Add form</button>
+			<button onClick={toggleForm} disabled={!fetchedData.length}>Add form</button>
 		)
 };
 

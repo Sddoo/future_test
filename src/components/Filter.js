@@ -1,5 +1,5 @@
 import React from 'react'
-import Person from '../classes/classPerson'
+import AddForm from "./AddForm";
 
 
 function filtrateData(filter, data) {
@@ -12,9 +12,13 @@ function filtrateData(filter, data) {
 
 	function filterFunc(elem) {
 		for (let prop of existingKeys) {
-			if (elem[prop] && elem[prop].toString().includes(filter[prop]) === false)
+			let reg1 = new RegExp(filter[prop], 'i');
+			let reg2 = new RegExp(filter.address[prop], 'i');
+
+			if (elem[prop] && !reg1.exec(elem[prop].toString()))
 				return false;
-			else if (elem.address[prop] && elem.address[prop].toString().includes(filter.address[prop]) === false)
+			else if ((elem.address[prop] && !reg2.exec(elem.address[prop].toString())) ||
+					elem.address[prop] === '')
 				return false;
 		}
 		return true;
@@ -23,15 +27,14 @@ function filtrateData(filter, data) {
 	return data.filter(filterFunc);
 }
 
-const Filter = ({filter, setFilter, fetchedData, setTableContent}) => {
+const Filter = ({filter, setFilter, fetchedData, setTableContent, setFetchedData}) => {
 
-	function handleClick() {
+	function handleFilter() {
 		setTableContent(filtrateData(filter, fetchedData));
 	}
 
 	function clearFilter() {
 		setTableContent(fetchedData);
-		setFilter(new Person());
 	}
 
 	function changeFilter (e) {
@@ -47,20 +50,25 @@ const Filter = ({filter, setFilter, fetchedData, setTableContent}) => {
 	return (
 		<div className={'filter'}>
 			<h2>Filter</h2>
-			<div>
-				Id: <input onChange={changeFilter} type="text" name='id' value={filter.id}/> <br/>
-				First name: <input onChange={changeFilter} type="text" name='firstName' value={filter.firstName}/> <br/>
-				Last name: <input onChange={changeFilter} type="text" name='lastName' value={filter.lastName}/> <br/>
-				Email: <input onChange={changeFilter} type="email" name='email' value={filter.email}/> <br/>
-				Phone: <input onChange={changeFilter} type="text" name='phone' value={filter.phone}/> <br/>
-				Street address: <input onChange={changeFilter} type="text" name='address.streetAddress' value={filter.address.streetAddress}/> <br/>
-				City: <input onChange={changeFilter} type="text" name='address.city' value={filter.address.city}/> <br/>
-				State: <input onChange={changeFilter} type="text" name='address.state' value={filter.address.state}/> <br/>
-				Zip: <input onChange={changeFilter} type="text" name='address.zip' value={filter.address.zip}/> <br/>
-				Description: <input onChange={changeFilter} type="text" name='description' value={filter.description}/> <br/>
+			<div>Id:</div> <input onChange={changeFilter} type="text" name='id' value={filter.id}/>
+			<div>First name:</div> <input onChange={changeFilter} type="text" name='firstName' value={filter.firstName}/>
+			<div>Last name:</div> <input onChange={changeFilter} type="text" name='lastName' value={filter.lastName}/>
+			<div>Email:</div> <input onChange={changeFilter} type="email" name='email' value={filter.email}/>
+			<div>Phone:</div> <input onChange={changeFilter} type="text" name='phone' value={filter.phone}/>
+			<div>Street address:</div> <input onChange={changeFilter} type="text" name='address.streetAddress' value={filter.address.streetAddress}/>
+			<div>City:</div> <input onChange={changeFilter} type="text" name='address.city' value={filter.address.city}/>
+			<div>State:</div> <input onChange={changeFilter} type="text" name='address.state' value={filter.address.state}/>
+			<div>Zip:</div> <input onChange={changeFilter} type="text" name='address.zip' value={filter.address.zip}/>
+			<div>Description:</div> <input onChange={changeFilter} type="text" name='description' value={filter.description}/>
+			<div className="filterButtons">
+				<button onClick={handleFilter} disabled={!fetchedData.length}>Filter!</button>
+				<AddForm
+					fetchedData={fetchedData}
+					setFetchedData={setFetchedData}
+					setTableContent={setTableContent}
+				/>
+				<button onClick={clearFilter} disabled={!fetchedData.length}>Clear filter</button>
 			</div>
-			<button onClick={handleClick}>Filter!</button>
-			<button onClick={clearFilter}>Clear filter</button>
 		</div>
 	)
 };

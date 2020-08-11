@@ -4,12 +4,12 @@ function Person() {
 	this.lastName = '';
 	this.email = '';
 	this.phone = '';
-	this.description = '' || 'none description';
+	this.description = '';
 	this.address = {
-		streetAddress: '' || 'none info',
-		city: '' || 'none info',
-		state: '' || 'none info',
-		zip: '' || 'none info'
+		streetAddress: '',
+		city: '',
+		state: '',
+		zip: ''
 	}
 }
 
