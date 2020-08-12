@@ -11,11 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fb00bfb-ff8e-408c-81d0-9b76e4762f2c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/conf/nginx.conf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +38,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Владислав\WebstormProjects\future\src\image" />
+      <recent name="C:\Users\Владислав\WebstormProjects\future\src\fonts" />
+      <recent name="C:\Users\Владислав\WebstormProjects\future\src" />
+    </key>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -49,18 +56,30 @@
       <option name="presentableId" value="Default" />
       <updated>1596809300178</updated>
       <workItem from="1596809301408" duration="6397000" />
+      <workItem from="1596975421992" duration="21698000" />
+      <workItem from="1597005652163" duration="10810000" />
+      <workItem from="1597049351135" duration="34415000" />
+      <workItem from="1597136789272" duration="9969000" />
+      <workItem from="1597160738911" duration="557000" />
+      <workItem from="1597164703088" duration="18788000" />
+      <workItem from="1597184702203" duration="1741000" />
+      <workItem from="1597186498937" duration="97000" />
+      <workItem from="1597219591690" duration="11292000" />
+      <workItem from="1597234864657" duration="1415000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -71,13 +90,22 @@
       <screen x="0" y="23" width="2560" height="1360" />
     </state>
     <state x="1659" y="418" key="#JavaScript/0.23.2560.1360@0.23.2560.1360" timestamp="1596811880867" />
-    <state x="1677" y="511" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596814359575">
-      <screen x="0" y="23" width="2560" height="1360" />
+    <state x="1258" y="373" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597236936603">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="1258" y="373" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1597236936603" />
     <state x="1677" y="511" key="#com.intellij.fileTypes.FileTypeChooser/0.23.2560.1360@0.23.2560.1360" timestamp="1596814359575" />
     <state x="1676" y="456" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596811835685">
       <screen x="0" y="23" width="2560" height="1360" />
     </state>
     <state x="1676" y="456" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.2560.1360@0.23.2560.1360" timestamp="1596811835685" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1597144776228">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597144776228" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1597175772924">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1597175772924" />
   </component>
 </project>

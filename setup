@@ -1,5 +1,0 @@
-docker-machine create -d virtualbox react
-eval $(docker-machine env react)
-
-docker build -t react-frontend .
-docker run -p 3000:3000 react-frontend
