@@ -50,16 +50,16 @@ const Filter = ({filter, setFilter, fetchedData, setTableContent, setFetchedData
 	return (
 		<div className={'filter'}>
 			<h2>Filter</h2>
-			<div>Id:</div> <input onChange={changeFilter} type="text" name='id' value={filter.id}/>
-			<div>First name:</div> <input onChange={changeFilter} type="text" name='firstName' value={filter.firstName}/>
-			<div>Last name:</div> <input onChange={changeFilter} type="text" name='lastName' value={filter.lastName}/>
-			<div>Email:</div> <input onChange={changeFilter} type="email" name='email' value={filter.email}/>
-			<div>Phone:</div> <input onChange={changeFilter} type="text" name='phone' value={filter.phone}/>
-			<div>Street address:</div> <input onChange={changeFilter} type="text" name='address.streetAddress' value={filter.address.streetAddress}/>
-			<div>City:</div> <input onChange={changeFilter} type="text" name='address.city' value={filter.address.city}/>
-			<div>State:</div> <input onChange={changeFilter} type="text" name='address.state' value={filter.address.state}/>
-			<div>Zip:</div> <input onChange={changeFilter} type="text" name='address.zip' value={filter.address.zip}/>
-			<div>Description:</div> <input onChange={changeFilter} type="text" name='description' value={filter.description}/>
+			<div>Id: <br/><input onChange={changeFilter} type="text" name='id' value={filter.id}/></div>
+			<div>First name: <br/> <input onChange={changeFilter} type="text" name='firstName' value={filter.firstName}/></div>
+			<div>Last name: <br/> <input onChange={changeFilter} type="text" name='lastName' value={filter.lastName}/></div>
+			<div>Email: <br/> <input onChange={changeFilter} type="email" name='email' value={filter.email}/></div>
+			<div>Phone: <br/> <input onChange={changeFilter} type="text" name='phone' value={filter.phone}/></div>
+			<div>Street address: <br/> <input onChange={changeFilter} type="text" name='address.streetAddress' value={filter.address.streetAddress}/></div>
+			<div>City: <br/> <input onChange={changeFilter} type="text" name='address.city' value={filter.address.city}/></div>
+			<div>State: <br/> <input onChange={changeFilter} type="text" name='address.state' value={filter.address.state}/></div>
+			<div>Zip: <br/> <input onChange={changeFilter} type="text" name='address.zip' value={filter.address.zip}/></div>
+			<div>Description: <br/> <input onChange={changeFilter} type="text" name='description' value={filter.description}/></div>
 			<div className="filterButtons">
 				<button onClick={handleFilter} disabled={!fetchedData.length}>Filter!</button>
 				<AddForm

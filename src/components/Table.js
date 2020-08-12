@@ -1,54 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Pagination from "./Pagination";
-
-const Info = ({info}) => {
-	if (Object.keys(info).length === 0)
-		return (<></>);
-	return (
-		<div className='info'>
-			<div>You chose <b>{info.firstName} {info.lastName}</b></div>
-			<div className="description"><b>Description: </b>
-				<div>{info.description}</div>
-			</div>
-			<div className="address">
-				<div className="streetAddress"><b>Street address: </b>{info.address.streetAddress}</div>
-				<div className="city"><b>City: </b>{info.address.city}</div>
-				<div className="state"><b>State: </b>{info.address.state}</div>
-				<div className="zip"><b>Zip: </b>{info.address.zip}</div>
-			</div>
-		</div>
-	)
-};
-
-const PageContent = ({pageContent, setInfo}) => {
-
-	function hideChosenTr() {
-		document.querySelectorAll('tr').forEach( elem => {
-			if (elem.classList.contains('chosen'))
-				elem.classList.remove('chosen');
-		});
-	}
-
-	function handleClick(event, elem) {
-		hideChosenTr();
-		event.target.parentNode.classList.add('chosen');
-		setInfo(elem);
-	}
-
-	useEffect( hideChosenTr, [pageContent] );
-
-	return (
-		pageContent.map( (elem, i) =>
-			<tr key={i} onClick={(e) => handleClick(e, elem)} className={'tableRow'}>
-				<td>{elem.id}</td>
-				<td>{elem.firstName}</td>
-				<td>{elem.lastName}</td>
-				<td>{elem.email}</td>
-				<td>{elem.phone}</td>
-			</tr>
-		)
-	);
-};
+import PageContent from "./PageContent";
+import ChosenPerson from "./ChosenPerson"
 
 const Table = ({tableContent, setTableContent}) => {
 	const page = {
@@ -70,6 +23,8 @@ const Table = ({tableContent, setTableContent}) => {
 	}
 
 	function sortContent(e) {
+		if (typeof tableContent === 'string')
+			return ;
 		let sorted = tableContent.map( elem => Object.assign(elem) );
 
 		toggleArrow();
@@ -102,7 +57,12 @@ const Table = ({tableContent, setTableContent}) => {
 	}
 
 	useEffect(() => {
-		setPageContent(tableContent.slice(0, 50));
+		if (typeof tableContent === 'string')
+			setPageContent(tableContent);
+		else {
+			setPageContent(tableContent.slice(0, 50));
+			setInfo({});
+		}
 	}, [tableContent]);
 
 	return (
@@ -111,25 +71,26 @@ const Table = ({tableContent, setTableContent}) => {
 			<div className={'tableContent'}>
 				<table>
 					<thead>
-						<tr>
-							<th onClick={sortContent} data-order={''}>id</th>
-							<th onClick={sortContent} data-order={''}>firstName</th>
-							<th onClick={sortContent} data-order={''}>lastName</th>
-							<th onClick={sortContent} data-order={''}>email</th>
-							<th onClick={sortContent} data-order={''}>phone</th>
-						</tr>
+					<tr>
+						<th onClick={sortContent} data-order={''}>id</th>
+						<th onClick={sortContent} data-order={''}>firstName</th>
+						<th onClick={sortContent} data-order={''}>lastName</th>
+						<th onClick={sortContent} data-order={''}>email</th>
+						<th onClick={sortContent} data-order={''}>phone</th>
+					</tr>
 					</thead>
 					<tbody>
-						<PageContent pageContent={pageContent}
-						             setInfo={setInfo}/>
+					<PageContent pageContent={pageContent}
+					             setInfo={setInfo}
+					/>
 					</tbody>
 				</table>
+				<Pagination page={page}
+				            tableContent={tableContent}
+				            setPageContent={setPageContent}
+				/>
 			</div>
-			<Pagination page={page}
-			            tableContent={tableContent}
-			            setPageContent={setPageContent}
-			/>
-			<Info info={info}/>
+			<ChosenPerson info={info}/>
 		</div>
 	)
 };
